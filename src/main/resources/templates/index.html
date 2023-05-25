@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th = "http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="main_layout.html">
+
+    <div layout:fragment="siteContent">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>NAME</th>
+                    <th>SURNAME</th>
+                    <th>EXAM</th>
+                    <th>MARK</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="st : ${students}" th:class="${st.exam<50?'text-danger':''}">
+                    <th th:text="${st.id}"></th>
+                    <th th:text="${st.name}"></th>
+                    <th th:text="${st.surname}"></th>
+                    <th th:text="${st.exam}"></th>
+                    <th th:text="${st.mark}"></th>
+                </tr>
+            </tbody>
+
+        </table>
+    </div>
+</html>
